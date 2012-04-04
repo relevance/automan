@@ -1,18 +1,18 @@
 <!DOCTYPE html>  <html> <head>   <title>automan.js.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               automan.js.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">Automan =</span>
   <span class="nv">_log: </span><span class="nf">(args...) -&gt;</span>
-    <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s1">&#39;Automan&#39;</span><span class="p">)</span>
+    <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s">&#39;Automan&#39;</span><span class="p">)</span>
     <span class="nx">console</span><span class="o">?</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">...)</span>
 
-  <span class="nv">_dispatchTouchEvent: </span><span class="nf">(eventType, clientX, clientY, el) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>@_log("Touch Event #{eventType} attempted to fire.  NYE")
-console.log(arguments)
-screenX = undefined
-screenY = undefined
-evt = document.createEvent("TouchEvent")
-evt.initTouchEvent(eventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
-el.dispatchEvent(evt)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">_dispatchMouseEvent: </span><span class="nf">(mouseEventType, clientX, clientY, el) -&gt;</span>
+  <span class="nv">_dispatchTouchEvent: </span><span class="nf">(eventType, clientX, clientY, el) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <h1>#</h1>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">@_log</span><span class="p">(</span><span class="s">&quot;Touch Event </span><span class="si">#{</span><span class="nx">eventType</span><span class="si">}</span><span class="s"> attempted to fire.  NYE&quot;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
     <span class="nv">screenX = </span><span class="kc">undefined</span>
     <span class="nv">screenY = </span><span class="kc">undefined</span>
-    <span class="nv">evt = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&quot;MouseEvents&quot;</span><span class="p">)</span>
+    <span class="nv">evt = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s">&quot;TouchEvent&quot;</span><span class="p">)</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">initTouchEvent</span><span class="p">(</span><span class="nx">eventType</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">screenX</span><span class="p">,</span> <span class="nx">screenY</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-3">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-3">&#182;</a>               </div>               <h1>#</h1>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">_dispatchMouseEvent: </span><span class="nf">(mouseEventType, clientX, clientY, el) -&gt;</span>
+    <span class="nv">screenX = </span><span class="kc">undefined</span>
+    <span class="nv">screenY = </span><span class="kc">undefined</span>
+    <span class="nv">evt = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s">&quot;MouseEvents&quot;</span><span class="p">)</span>
     <span class="nx">evt</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="nx">mouseEventType</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">screenX</span><span class="p">,</span> <span class="nx">screenY</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span>
     <span class="nx">el</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span>
 
@@ -20,32 +20,50 @@ el.dispatchEvent(evt)</p>             </td>             <td class="code">       
     <span class="p">{</span><span class="nx">top</span><span class="p">,</span> <span class="nx">left</span><span class="p">}</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">offset</span><span class="p">()</span>
     <span class="nv">y = </span><span class="nx">top</span> <span class="o">+</span> <span class="nx">topOffset</span>
     <span class="nv">x = </span><span class="nx">left</span> <span class="o">+</span> <span class="nx">leftOffset</span>
-    <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span>
+    <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span></pre></div>             </td>           </tr>                               <tr id="section-4">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-4">&#182;</a>               </div>               <h3>Main User Interaction Simulation Functions</h3>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-5">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-5">&#182;</a>               </div>               <p>Click on a DOM element, given its selector. E.g.:</p>
 
-  <span class="kc">on</span><span class="o">:</span> <span class="nf">(selector) -&gt;</span>
-    <span class="nx">jQuery</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">)</span>
-    <span class="err">@</span>
+<pre><code>Automan.on('#myElement')
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kc">on</span><span class="o">:</span> <span class="nf">(selector) -&gt;</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
+    <span class="nx">@</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Enhances human-readability of chained Automan events. E.g.:</p>
 
-  <span class="k">then</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="err">@</span>
+<pre><code>Automan
+  .on("#myElement")
+  .then()
+  .on("#myOtherElement")
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">then</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="nx">@</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <p>Simulate a click on a given element at the specified coordinates. Coordinates
+should originate from the top left of the <code>within</code> element. <code>within</code> should be
+a CSS selector. E.g.:</p>
 
-  <span class="nv">at: </span><span class="nf">(options) -&gt;</span>
+<pre><code>Automan.at({
+  leftOffset: 150,
+  topOffset: 150,
+  within: '#someContainer'
+})
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">at: </span><span class="nf">(options) -&gt;</span>
     <span class="p">{</span><span class="nx">leftOffset</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">,</span> <span class="nx">within</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
 
     <span class="k">if</span> <span class="nx">leftOffset</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">topOffset</span> <span class="o">==</span> <span class="mi">0</span>
-      <span class="nx">@_log</span><span class="p">(</span><span class="s1">&#39;WARN: offset was 0, maybe you should double-check it?&#39;</span><span class="p">,</span> <span class="s1">&#39;leftOffset&#39;</span><span class="p">,</span> <span class="nx">leftOffset</span><span class="p">,</span> <span class="s1">&#39;topOffset&#39;</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">)</span>
+      <span class="nx">@_log</span><span class="p">(</span><span class="s">&#39;WARN: offset was 0, maybe you should double-check it?&#39;</span><span class="p">,</span> <span class="s">&#39;leftOffset&#39;</span><span class="p">,</span> <span class="nx">leftOffset</span><span class="p">,</span> <span class="s">&#39;topOffset&#39;</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">)</span>
 
     <span class="nv">$within = </span><span class="nx">jQuery</span><span class="p">(</span><span class="nx">within</span><span class="p">)</span>
     <span class="p">[</span><span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">leftOffset</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">,</span> <span class="nx">$within</span><span class="p">)</span>
 
-    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>Fire all events that occur when a mouse is clicked or a touch
+screen is tapped.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&#39;touchstart&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&#39;mousedown&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&#39;touchend&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&#39;mouseup&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>Simulate a drag event on a given element, from one set of coordinates to
+another. Coordinates should originate at the top left corner of the <code>within</code>
+element.</p>
 
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s1">&#39;touchstart&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s1">&#39;mousedown&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s1">&#39;touchend&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s1">&#39;mouseup&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="err">@</span>
-
-  <span class="nv">drag: </span><span class="nf">(options) -&gt;</span>
+<pre><code>Automan.drag({
+  from: [15, 15],
+  to: [150, 150],
+  within: '#someContainer'
+});
+</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">drag: </span><span class="nf">(options) -&gt;</span>
     <span class="p">{</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">within</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
 
     <span class="nv">$within = </span><span class="nx">jQuery</span><span class="p">(</span><span class="nx">within</span><span class="p">)</span>
@@ -53,16 +71,18 @@ el.dispatchEvent(evt)</p>             </td>             <td class="code">       
     <span class="p">[</span><span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">from</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">from</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">$within</span><span class="p">)</span>
     <span class="p">[</span><span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">to</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">to</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">$within</span><span class="p">)</span>
 
-    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchstart&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousedown&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchend&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mouseup&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
-    <span class="err">@</span>
+    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>Dispatch all of the events fired during a click and drag
+(i.e. drag and drop). Note that <code>mousemove</code> is fired at
+the start point and the end point, but not at any points
+in between.</p>             </td>             <td class="code">               <div class="highlight"><pre>    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&quot;touchstart&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&quot;mousedown&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s">&quot;touchend&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s">&quot;mouseup&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@</span>
 
 <span class="nb">window</span><span class="p">.</span><span class="nv">Automan = </span><span class="nx">Automan</span>
 
