@@ -1,19 +1,22 @@
 Automan =
+  #### Private things
+
+  # Automan's wrapper for `console.log`
   _log: (args...) ->
     args.unshift('Automan')
     console?.log(args...)
 
+  # Not implemented yet. Maybe not even possible.
+  #
+  #     screenX = undefined
+  #     screenY = undefined
+  #     evt = document.createEvent("TouchEvent")
+  #     evt.initTouchEvent(eventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
+  #     el.dispatchEvent(evt)
   _dispatchTouchEvent: (eventType, clientX, clientY, el) ->
-    ###
-    @_log("Touch Event #{eventType} attempted to fire.  NYE")
-    console.log(arguments)
-    screenX = undefined
-    screenY = undefined
-    evt = document.createEvent("TouchEvent")
-    evt.initTouchEvent(eventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
-    el.dispatchEvent(evt)
-    ###
 
+  # Dispatches a mouse event of a given type, given an X/Y coordinate
+  # from the top, left corner of the given element.
   _dispatchMouseEvent: (mouseEventType, clientX, clientY, el) ->
     screenX = undefined
     screenY = undefined
@@ -21,6 +24,14 @@ Automan =
     evt.initMouseEvent(mouseEventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
     el.dispatchEvent(evt)
 
+  # Determines X/Y coordinates relative to the window (client), given
+  # a jQuery element and coordinates relative to that element. E.g.:
+  #
+  #     [x, y] = @_coordsWithOffset(
+  #       leftOffset,
+  #       topOffset,
+  #       jQueryElement
+  #     )
   _coordsWithOffset: (leftOffset, topOffset, $el) ->
     {top, left} = $el.offset()
     y = top + topOffset
