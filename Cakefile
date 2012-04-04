@@ -5,6 +5,7 @@ fs                = require 'fs'
 CoffeeScript      = require 'coffee-script'
 
 task 'doc', 'rebuild the Docco documentation', ->
+  util.print "Documenting...\n"
   exec([
     'rm -r docs'
     'node_modules/docco/bin/docco automan.js.coffee'
@@ -28,5 +29,6 @@ task "compress", 'Uglify JS', (params)->
   util.print "Complete!\n"
 
 task 'build', 'convert and compress assets', ->
+  invoke 'doc'
   invoke 'convert'
   invoke 'compress'
