@@ -1,21 +1,23 @@
 {
-  "author": "Chad Humphries/Jamie Kite <chad@thinkrelevance.com>",
-  "name": "automan",
-  "description": "Let's just say it's awesome. Fair enough?",
-  "version": "0.0.1",
-  "homepage": "http://github.com/relevance/automan",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/relevance/automan.git"
+  "author"              : "Chad Humphries/Jamie Kite <chad@thinkrelevance.com>",
+  "name"                : "automan",
+  "description"         : "Let's just say it's awesome. Fair enough?",
+  "version"             : "0.0.1",
+  "homepage"            : "http://github.com/relevance/automan",
+  "repository"          : {
+    "type"              : "git",
+    "url"               : "git://github.com/relevance/automan.git"
   },
-  "dependencies": {},
-  "devDependencies": {
-    "docco"           : ">=0.3.0",
-    "coffee-script"   : ">=1.2.0",
-    "uglify-js"       : ">=1.2.6"
+  "lib"                 : ".",
+  "dependencies"        : {},
+  "devDependencies"     : {
+    "jquery"            : ">=1.6",
+    "docco"             : ">=0.3.0",
+    "coffee-script"     : ">=1.2.0",
+    "uglify-js"         : ">=1.2.6"
   },
   "optionalDependencies": {},
-  "engines": {
-    "node": ">=0.6"
+  "engines"             : {
+    "node"              : ">=0.6"
   }
 }
