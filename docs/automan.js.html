@@ -1,0 +1,69 @@
+<!DOCTYPE html>  <html> <head>   <title>automan.js.coffee</title>   <meta http-equiv="content-type" content="text/html; charset=UTF-8">   <link rel="stylesheet" media="all" href="docco.css" /> </head> <body>   <div id="container">     <div id="background"></div>          <table cellpadding="0" cellspacing="0">       <thead>         <tr>           <th class="docs">             <h1>               automan.js.coffee             </h1>           </th>           <th class="code">           </th>         </tr>       </thead>       <tbody>                               <tr id="section-1">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-1">&#182;</a>               </div>                            </td>             <td class="code">               <div class="highlight"><pre><span class="nv">Automan =</span>
+  <span class="nv">_log: </span><span class="nf">(args...) -&gt;</span>
+    <span class="nx">args</span><span class="p">.</span><span class="nx">unshift</span><span class="p">(</span><span class="s1">&#39;Automan&#39;</span><span class="p">)</span>
+    <span class="nx">console</span><span class="o">?</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">args</span><span class="p">...)</span>
+
+  <span class="nv">_dispatchTouchEvent: </span><span class="nf">(eventType, clientX, clientY, el) -&gt;</span></pre></div>             </td>           </tr>                               <tr id="section-2">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-2">&#182;</a>               </div>               <p>@_log("Touch Event #{eventType} attempted to fire.  NYE")
+console.log(arguments)
+screenX = undefined
+screenY = undefined
+evt = document.createEvent("TouchEvent")
+evt.initTouchEvent(eventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
+el.dispatchEvent(evt)</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">_dispatchMouseEvent: </span><span class="nf">(mouseEventType, clientX, clientY, el) -&gt;</span>
+    <span class="nv">screenX = </span><span class="kc">undefined</span>
+    <span class="nv">screenY = </span><span class="kc">undefined</span>
+    <span class="nv">evt = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s2">&quot;MouseEvents&quot;</span><span class="p">)</span>
+    <span class="nx">evt</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="nx">mouseEventType</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">screenX</span><span class="p">,</span> <span class="nx">screenY</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span>
+    <span class="nx">el</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span>
+
+  <span class="nv">_coordsWithOffset: </span><span class="nf">(leftOffset, topOffset, $el) -&gt;</span>
+    <span class="p">{</span><span class="nx">top</span><span class="p">,</span> <span class="nx">left</span><span class="p">}</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">offset</span><span class="p">()</span>
+    <span class="nv">y = </span><span class="nx">top</span> <span class="o">+</span> <span class="nx">topOffset</span>
+    <span class="nv">x = </span><span class="nx">left</span> <span class="o">+</span> <span class="nx">leftOffset</span>
+    <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span>
+
+  <span class="kc">on</span><span class="o">:</span> <span class="nf">(selector) -&gt;</span>
+    <span class="nx">jQuery</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s1">&#39;click&#39;</span><span class="p">)</span>
+    <span class="err">@</span>
+
+  <span class="k">then</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="err">@</span>
+
+  <span class="nv">at: </span><span class="nf">(options) -&gt;</span>
+    <span class="p">{</span><span class="nx">leftOffset</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">,</span> <span class="nx">within</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
+
+    <span class="k">if</span> <span class="nx">leftOffset</span> <span class="o">==</span> <span class="mi">0</span> <span class="o">||</span> <span class="nx">topOffset</span> <span class="o">==</span> <span class="mi">0</span>
+      <span class="nx">@_log</span><span class="p">(</span><span class="s1">&#39;WARN: offset was 0, maybe you should double-check it?&#39;</span><span class="p">,</span> <span class="s1">&#39;leftOffset&#39;</span><span class="p">,</span> <span class="nx">leftOffset</span><span class="p">,</span> <span class="s1">&#39;topOffset&#39;</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">)</span>
+
+    <span class="nv">$within = </span><span class="nx">jQuery</span><span class="p">(</span><span class="nx">within</span><span class="p">)</span>
+    <span class="p">[</span><span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">leftOffset</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">,</span> <span class="nx">$within</span><span class="p">)</span>
+
+    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s1">&#39;touchstart&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s1">&#39;mousedown&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s1">&#39;touchend&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s1">&#39;mouseup&#39;</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="err">@</span>
+
+  <span class="nv">drag: </span><span class="nf">(options) -&gt;</span>
+    <span class="p">{</span><span class="nx">from</span><span class="p">,</span> <span class="nx">to</span><span class="p">,</span> <span class="nx">within</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
+
+    <span class="nv">$within = </span><span class="nx">jQuery</span><span class="p">(</span><span class="nx">within</span><span class="p">)</span>
+
+    <span class="p">[</span><span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">from</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">from</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">$within</span><span class="p">)</span>
+    <span class="p">[</span><span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">]</span> <span class="o">=</span> <span class="nx">@_coordsWithOffset</span><span class="p">(</span><span class="nx">to</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nx">to</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nx">$within</span><span class="p">)</span>
+
+    <span class="nv">el = </span><span class="nx">$within</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchstart&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousedown&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">startX</span><span class="p">,</span> <span class="nx">startY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchmove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mousemove&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchTouchEvent</span><span class="p">(</span><span class="s2">&quot;touchend&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="nx">@_dispatchMouseEvent</span><span class="p">(</span><span class="s2">&quot;mouseup&quot;</span><span class="p">,</span> <span class="nx">endX</span><span class="p">,</span> <span class="nx">endY</span><span class="p">,</span> <span class="nx">el</span><span class="p">)</span>
+    <span class="err">@</span>
+
+<span class="nb">window</span><span class="p">.</span><span class="nv">Automan = </span><span class="nx">Automan</span>
+
+</pre></div>             </td>           </tr>                </tbody>     </table>   </div> </body> </html> 
