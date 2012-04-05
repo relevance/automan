@@ -12,7 +12,9 @@
   "dependencies"        : {},
   "devDependencies"     : {
     "jquery"            : ">=1.6",
+    "jsdom"             : ">=0.2.13",
     "docco"             : ">=0.3.0",
+    "chai"              : ">=0.5.2",
     "coffee-script"     : ">=1.2.0",
     "uglify-js"         : ">=1.2.6",
     "mocha"             : ">=1.0.0"

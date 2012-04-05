@@ -1,4 +1,5 @@
 {spawn, exec}     = require 'child_process'
+{print}           = require 'util'
 util              = require 'util'
 fs                = require 'fs'
 {parser, uglify}  = require 'uglify-js'
@@ -32,3 +33,11 @@ task 'build', 'convert and compress assets', ->
   invoke 'doc'
   invoke 'convert'
   invoke 'compress'
+
+task 'test', 'Run mocha specs', ->
+  files = [ 'automan_spec.js.coffee' ]
+  for file in files
+    exec "node_modules/mocha/bin/mocha --reporter spec --compilers coffee:coffee-script test/#{file}",
+      (err, stdout, stderr) ->
+        print stdout if stdout?
+        print stderr if stderr?

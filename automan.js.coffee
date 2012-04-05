@@ -116,4 +116,6 @@ Automan =
     @_dispatchMouseEvent("mouseup", endX, endY, el)
     @
 
-window.Automan = Automan
+window?.Automan = Automan
+exports?.Automan = Automan
+
