@@ -14,20 +14,13 @@ from the top, left corner of the given element.</p>             </td>           
     <span class="nv">evt = </span><span class="nb">document</span><span class="p">.</span><span class="nx">createEvent</span><span class="p">(</span><span class="s">&quot;MouseEvents&quot;</span><span class="p">)</span>
     <span class="nx">evt</span><span class="p">.</span><span class="nx">initMouseEvent</span><span class="p">(</span><span class="nx">mouseEventType</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="nb">window</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nx">screenX</span><span class="p">,</span> <span class="nx">screenY</span><span class="p">,</span> <span class="nx">clientX</span><span class="p">,</span> <span class="nx">clientY</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="kc">null</span><span class="p">)</span>
     <span class="nx">el</span><span class="p">.</span><span class="nx">dispatchEvent</span><span class="p">(</span><span class="nx">evt</span><span class="p">)</span></pre></div>             </td>           </tr>                               <tr id="section-6">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-6">&#182;</a>               </div>               <p>Determines X/Y coordinates relative to the window (client), given
-a jQuery element and coordinates relative to that element. E.g.:</p>
-
-<pre><code>[x, y] = @_coordsWithOffset(
-  leftOffset,
-  topOffset,
-  jQueryElement
-)
-</code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">_coordsWithOffset: </span><span class="nf">(leftOffset, topOffset, $el) -&gt;</span>
+a jQuery element and coordinates relative to that element.</p>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">_coordsWithOffset: </span><span class="nf">(leftOffset, topOffset, $el) -&gt;</span>
     <span class="p">{</span><span class="nx">top</span><span class="p">,</span> <span class="nx">left</span><span class="p">}</span> <span class="o">=</span> <span class="nx">$el</span><span class="p">.</span><span class="nx">offset</span><span class="p">()</span>
     <span class="nv">y = </span><span class="nx">top</span> <span class="o">+</span> <span class="nx">topOffset</span>
     <span class="nv">x = </span><span class="nx">left</span> <span class="o">+</span> <span class="nx">leftOffset</span>
     <span class="p">[</span><span class="nx">x</span><span class="p">,</span> <span class="nx">y</span><span class="p">]</span></pre></div>             </td>           </tr>                               <tr id="section-7">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-7">&#182;</a>               </div>               <h3>Main User Interaction Simulation Functions</h3>             </td>             <td class="code">               <div class="highlight"><pre></pre></div>             </td>           </tr>                               <tr id="section-8">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-8">&#182;</a>               </div>               <p>Click on a DOM element, given its selector. E.g.:</p>
 
-<pre><code>Automan.on('#myElement')
+<pre><code>Automan.on('#myElement');
 </code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="kc">on</span><span class="o">:</span> <span class="nf">(selector) -&gt;</span>
     <span class="nx">jQuery</span><span class="p">(</span><span class="nx">selector</span><span class="p">).</span><span class="nx">trigger</span><span class="p">(</span><span class="s">&#39;click&#39;</span><span class="p">)</span>
     <span class="nx">@</span></pre></div>             </td>           </tr>                               <tr id="section-9">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-9">&#182;</a>               </div>               <p>Enhances human-readability of chained Automan events. E.g.:</p>
@@ -35,7 +28,7 @@ a jQuery element and coordinates relative to that element. E.g.:</p>
 <pre><code>Automan
   .on("#myElement")
   .then()
-  .on("#myOtherElement")
+  .on("#myOtherElement");
 </code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="k">then</span><span class="o">:</span> <span class="o">-&gt;</span> <span class="nx">@</span></pre></div>             </td>           </tr>                               <tr id="section-10">             <td class="docs">               <div class="pilwrap">                 <a class="pilcrow" href="#section-10">&#182;</a>               </div>               <p>Simulate a click on a given element at the specified coordinates. Coordinates
 should originate from the top left of the <code>within</code> element. <code>within</code> should be
 a CSS selector. E.g.:</p>
@@ -44,7 +37,7 @@ a CSS selector. E.g.:</p>
   leftOffset: 150,
   topOffset: 150,
   within: '#someContainer'
-})
+});
 </code></pre>             </td>             <td class="code">               <div class="highlight"><pre>  <span class="nv">at: </span><span class="nf">(options) -&gt;</span>
     <span class="p">{</span><span class="nx">leftOffset</span><span class="p">,</span> <span class="nx">topOffset</span><span class="p">,</span> <span class="nx">within</span><span class="p">}</span> <span class="o">=</span> <span class="nx">options</span>
 

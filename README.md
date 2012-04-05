@@ -13,13 +13,13 @@ you to specify *where* an element was clicked or dragged.
 * **Click on specified element** given its CSS selector.
 
 ```javascript
-Automan.on('#myElement')
+Automan.on('#myElement');
 ```
 
 * **Chained interactions.** Click on this, then click on that!
 
 ```javascript
-Automan.on("#myElement").then().on("#myOtherElement")
+Automan.on("#myElement").then().on("#myOtherElement");
 ```
 
 * **Click at a specified location** given a CSS selector and a top and
@@ -30,7 +30,7 @@ Automan.at({
   leftOffset: 150,
   topOffset: 150,
   within: '#someContainer'
-})
+});
 ```
 
 * **Click and drag** within an element, given its CSS selector and

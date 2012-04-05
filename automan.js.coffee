@@ -25,13 +25,7 @@ Automan =
     el.dispatchEvent(evt)
 
   # Determines X/Y coordinates relative to the window (client), given
-  # a jQuery element and coordinates relative to that element. E.g.:
-  #
-  #     [x, y] = @_coordsWithOffset(
-  #       leftOffset,
-  #       topOffset,
-  #       jQueryElement
-  #     )
+  # a jQuery element and coordinates relative to that element.
   _coordsWithOffset: (leftOffset, topOffset, $el) ->
     {top, left} = $el.offset()
     y = top + topOffset
@@ -42,7 +36,7 @@ Automan =
 
   # Click on a DOM element, given its selector. E.g.:
   #
-  #     Automan.on('#myElement')
+  #     Automan.on('#myElement');
   on: (selector) ->
     jQuery(selector).trigger('click')
     @
@@ -52,7 +46,7 @@ Automan =
   #     Automan
   #       .on("#myElement")
   #       .then()
-  #       .on("#myOtherElement")
+  #       .on("#myOtherElement");
   then: -> @
 
   # Simulate a click on a given element at the specified coordinates. Coordinates
@@ -63,7 +57,7 @@ Automan =
   #       leftOffset: 150,
   #       topOffset: 150,
   #       within: '#someContainer'
-  #     })
+  #     });
   at: (options) ->
     {leftOffset, topOffset, within} = options
 
