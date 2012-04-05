@@ -35,9 +35,5 @@ task 'build', 'convert and compress assets', ->
   invoke 'compress'
 
 task 'test', 'Run mocha specs', ->
-  files = [ 'automan_spec.js.coffee' ]
-  for file in files
-    exec "node_modules/mocha/bin/mocha --reporter spec --colors --compilers coffee:coffee-script test/#{file}",
-      (err, stdout, stderr) ->
-        print stdout if stdout?
-        print stderr if stderr?
+  invoke 'build'
+  exec "open tests.html"

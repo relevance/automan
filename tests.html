@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+  <link rel="stylesheet" href="test/support/mocha.css" />
+  <script src="test/support/jquery.js"></script>
+  <script src="test/support/chai.js"></script>
+  <script src="test/support/mocha.js"></script>
+  <script>mocha.setup('bdd')</script>
+  <script src="automan.js"></script>
+  <script src="test/automan_spec.js"></script>
+  <script>
+    $(function(){
+      mocha.run()
+    })
+  </script>
+</head>
+<body>
+  <div id="mocha"></div>
+  <div id="test"></div>
+</body>
+</html>
+

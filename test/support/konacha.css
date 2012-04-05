@@ -1,0 +1,5 @@
+/* Keep #konacha div visible so we can test against element visibility */
+#konacha {
+  height: 0 ! important;
+  overflow: hidden ! important;
+}
