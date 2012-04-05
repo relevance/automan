@@ -2,10 +2,10 @@ var expect = chai.expect,
     should = chai.should(),
     assert = chai.assert;
 
+var clearTestDiv = function() { jQuery('#test').html(''); };
+
 describe("Automan", function() {
-  beforeEach(function () {
-    jQuery('#test').html('');
-  });
+  beforeEach(clearTestDiv);
 
   describe(".on()", function() {
     var clicked = false;
@@ -20,9 +20,13 @@ describe("Automan", function() {
     });
 
     it("should click on an element", function() {
-      clicked.should.be["false"];
+      clicked.should.be.false;
       Automan.on('#myElement');
-      clicked.should.be["true"];
+      clicked.should.be.true;
+    });
+
+    it("returns this", function() {
+      Automan.on("#myElement").should.equal(Automan);
     });
   });
 
@@ -46,6 +50,28 @@ describe("Automan", function() {
       });
 
       $radio.attr('checked').should.equal('checked');
+    });
+
+    it("returns this", function() {
+      Automan.at({ leftOffset: 10, topOffset: 10, within: '#myLabel' }).should.equal(Automan);
+    });
+
+  });
+
+
+  describe(".then()", function() {
+    it("returns this", function() {
+      Automan.then().should.equal(Automan);
+    });
+  });
+
+  describe(".drag()", function() {
+    it("returns this", function() {
+      Automan.drag({
+        from: [15, 15],
+        to: [150, 150],
+        within: '#test'
+      }).should.equal(Automan);
     });
   });
 
