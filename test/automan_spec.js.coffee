@@ -1,4 +1,3 @@
-global.window  = require("jsdom").jsdom().createWindow()
 global.jQuery  = require("jquery")
 
 should  = require('chai').should()
