@@ -23,6 +23,15 @@ Automan =
     x = left + leftOffset
     [x, y]
 
+  # Useful for debugging. Attaches click, mousedown, mousemove, and mouseup
+  # event observers to `<body>`
+  _debugRealEvents: ->
+    log = (e) => @_log(e.type, e)
+    jQuery('body').click(log)
+    jQuery('body').mousedown(log)
+    jQuery('body').mousemove (e) => @_log(e.type)
+    jQuery('body').mouseup(log)
+
   #### Main User Interaction Simulation Functions
 
   # Click on a DOM element, given its selector. E.g.:
