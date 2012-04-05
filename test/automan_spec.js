@@ -60,6 +60,22 @@ describe("Automan", function() {
 
 
   describe(".then()", function() {
+    it("chains multiple Automan actions together", function() {
+      var clicks = 0,
+        a = jQuery('<div>').attr('id', 'a').html('Element A'),
+        b = jQuery('<div>').attr('id', 'b').html('Element B'),
+        incrementClicks = function() { clicks += 1; };
+
+      jQuery('#test').append(a).append(b);
+
+      a.click(incrementClicks);
+      b.click(incrementClicks);
+
+      clicks.should.equal(0);
+      Automan.on('#a').then().on('#b');
+      clicks.should.equal(2);
+    });
+
     it("returns this", function() {
       Automan.then().should.equal(Automan);
     });
