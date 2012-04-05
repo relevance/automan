@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
     <title>Automan by relevance</title>
-    
+
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -25,33 +25,77 @@
         </ul>
       </header>
       <section>
-        <h3>Welcome to GitHub Pages.</h3>
+        <article class="markdown-body" itemprop="mainContentOfPage">
+          <pre><code>_______         _____
+___    |____  ____  /_______ _______ ___ ______ ________
+__  /| |_  / / /_  __/_  __ \__  __ `__ \_  __ `/__  __ \
+_  ___ |/ /_/ / / /_  / /_/ /_  / / / / // /_/ / _  / / /
+/_/  |_|\__,_/  \__/  \____/ /_/ /_/ /_/ \__,_/  /_/ /_/
+          </code></pre>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+          <p>This Javascript library provides user interaction simulations via a
+          simple API. Beyond the expected "click on element" functions, it allows
+          you to specify <em>where</em> an element was clicked or dragged.</p>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+          <h2>Features</h2>
+
+          <ul>
+          <li>
+          <strong>Click on specified element</strong> given its CSS selector.</li>
+          </ul><div class="highlight">
+          <pre><span class="nx">Automan</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s1">'#myElement'</span><span class="p">);</span></pre>
+          </div>
+
+
+          <ul>
+          <li>
+          <strong>Chained interactions.</strong> Click on this, then click on that!</li>
+          </ul><div class="highlight">
+          <pre><span class="nx">Automan</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">"#myElement"</span><span class="p">).</span><span class="nx">then</span><span class="p">().</span><span class="nx">on</span><span class="p">(</span><span class="s2">"#myOtherElement"</span><span class="p">);</span></pre>
+          </div>
+
+
+          <ul>
+          <li>
+          <strong>Click at a specified location</strong> given a CSS selector and a top and
+          left offset.</li>
+          </ul><div class="highlight">
+          <pre><span class="nx">Automan</span><span class="p">.</span><span class="nx">at</span><span class="p">({</span>
+  <span class="nx">leftOffset</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
+  <span class="nx">topOffset</span><span class="o">:</span> <span class="mi">150</span><span class="p">,</span>
+  <span class="nx">within</span><span class="o">:</span> <span class="s1">'#someContainer'</span>
+<span class="p">});</span></pre>
+          </div>
+
+
+          <ul>
+      <li>
+      <strong>Click and drag</strong> within an element, given its CSS selector and
+      start/end coordinates (offset from top/left of the given element).</li>
+      </ul><div class="highlight">
+      <pre><span class="nx">Automan</span><span class="p">.</span><span class="nx">drag</span><span class="p">({</span>
+  <span class="nx">from</span><span class="o">:</span> <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span>
+  <span class="nx">to</span><span class="o">:</span> <span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span>
+  <span class="nx">within</span><span class="o">:</span> <span class="s1">'#someContainer'</span>
+<span class="p">});</span></pre>
+      </div>
+
+
+<h2>Local setup</h2>
+
+<pre><code>npm install .
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h2>Running the tests</h2>
 
-<h3>Designer Templates</h3>
+<pre><code>cake test
+</code></pre></article>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>Authors and Contributors</h3>
+        <h2>Authors and Contributors</h2>
 
 <p><a href="https://github.com/spicycode" class="user-mention">@spicycode</a>, <a href="https://github.com/jgkite" class="user-mention">@jgkite</a>, and <a href="https://github.com/relevance" class="user-mention">@relevance</a></p>
 
-<h3>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact support@github.com and we’ll help you sort it out.</p>
-      </section>
+     </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/relevance">relevance</a></p>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
