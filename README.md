@@ -4,14 +4,46 @@
     _  ___ |/ /_/ / / /_  / /_/ /_  / / / / // /_/ / _  / / /
     /_/  |_|\__,_/  \__/  \____/ /_/ /_/ /_/ \__,_/  /_/ /_/
 
-A project for the 21st century.   The stuff of dreams.
+This Javascript library provides user interaction simulations via a
+simple API. Beyond the expected "click on element" functions, it allows
+you to specify *where* an element was clicked or dragged.
 
-![Automan: Seen here fighting crime](http://upload.wikimedia.org/wikipedia/en/a/a9/Automan.jpg)
+## Features
 
-Local setup
-======================
+* **Click on specified element** given its CSS selector.
+
+  * `Automan.on('#myElement')`
+
+* **Chained interactions.** Click on this, then click on that!
+
+  * `Automan.on("#myElement").then().on("#myOtherElement")`
+
+* **Click at a specified location** given a CSS selector and a top and
+  left offset.
+
+```coffee
+Automan.at({
+  leftOffset: 150,
+  topOffset: 150,
+  within: '#someContainer'
+})
+```
+
+* **Click and drag** within an element, given its CSS selector and
+  start/end coordinates (offset from top/left of the given element).
+
+```coffee
+Automan.drag({
+  from: [15, 15],
+  to: [150, 150],
+  within: '#someContainer'
+});
+```
+
+## Local setup
+
     npm install .
 
-Running the tests
-======================
+## Running the tests
+
     cake test
