@@ -16,6 +16,6 @@ describe "Automan", ->
       jQuery('body').append($el)
 
     it "should click on an element", ->
-      clicked.should.equal(false)
+      clicked.should.be.false
       Automan.on('#myElement')
-      clicked.should.equal(true)
+      clicked.should.be.true
