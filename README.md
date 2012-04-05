@@ -12,16 +12,20 @@ you to specify *where* an element was clicked or dragged.
 
 * **Click on specified element** given its CSS selector.
 
-  * `Automan.on('#myElement')`
+```javascript
+Automan.on('#myElement')
+```
 
 * **Chained interactions.** Click on this, then click on that!
 
-  * `Automan.on("#myElement").then().on("#myOtherElement")`
+```javascript
+Automan.on("#myElement").then().on("#myOtherElement")
+```
 
 * **Click at a specified location** given a CSS selector and a top and
   left offset.
 
-```coffee
+```javascript
 Automan.at({
   leftOffset: 150,
   topOffset: 150,
@@ -32,7 +36,7 @@ Automan.at({
 * **Click and drag** within an element, given its CSS selector and
   start/end coordinates (offset from top/left of the given element).
 
-```coffee
+```javascript
 Automan.drag({
   from: [15, 15],
   to: [150, 150],
