@@ -4,15 +4,7 @@ var expect = chai.expect,
 
 describe("Automan", function() {
   beforeEach(function () {
-    var e = document.getElementById('test'),
-    p = e.parentNode;
-
-    p.removeChild(e);
-
-    e = document.createElement("div");
-    e.id = "test";
-
-    p.appendChild(e);
+    jQuery('#test').html('');
   });
 
   describe(".on()", function() {
@@ -33,4 +25,28 @@ describe("Automan", function() {
       clicked.should.be["true"];
     });
   });
+
+  describe(".at()", function() {
+    var $label = null, $radio = null;
+
+    beforeEach(function() {
+      $label = jQuery('<label>').attr('id', 'myLabel').attr('for', 'myRadio').html('My Label');
+      $radio = jQuery('<input>').attr('type', 'radio').attr('id', 'myRadio');
+      $label.prepend($radio);
+      jQuery('#test').append($label);
+    });
+
+    it("can click at a specific x/y offset within a given element", function() {
+      should.equal($radio.attr('checked'), undefined);
+
+      Automan.at({
+        leftOffset: 10,
+        topOffset: 10,
+        within: '#myLabel'
+      });
+
+      $radio.attr('checked').should.equal('checked');
+    });
+  });
+
 });

@@ -75,6 +75,7 @@ Automan =
     @_dispatchMouseEvent('mousedown', clientX, clientY, el)
     @_dispatchTouchEvent('touchend', clientX, clientY, el)
     @_dispatchMouseEvent('mouseup', clientX, clientY, el)
+    @_dispatchMouseEvent('click', clientX, clientY, el)
     @
 
   # Simulate a drag event on a given element, from one set of coordinates to
