@@ -8,6 +8,16 @@
     "type"              : "git",
     "url"               : "git://github.com/relevance/automan.git"
   },
+  "contributors"        : [
+    {
+      "name"            : "Chad Humphries",
+      "email"           : "chad@thinkrelevance.com"
+    },
+    {
+      "name"            : "Jamie Gillespie Kite",
+      "email"           : "jamie@thinkrelevance.com"
+    }
+  ],
   "lib"                 : ".",
   "dependencies"        : {},
   "devDependencies"     : {
