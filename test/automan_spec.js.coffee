@@ -2,11 +2,11 @@ global.window  = require("jsdom").jsdom().createWindow()
 global.jQuery  = require("jquery")
 
 should  = require('chai').should()
+Automan = require('../automan.js.coffee').Automan
 
 describe "Automan", ->
-  Automan = require('../automan.js.coffee').Automan
 
-  describe "on()", ->
+  describe ".on()", ->
     clicked = false
 
     beforeEach ->
