@@ -67,11 +67,7 @@ describe("Automan", function() {
 
   describe(".drag()", function() {
     it("returns this", function() {
-      Automan.drag({
-        from: [15, 15],
-        to: [150, 150],
-        within: '#test'
-      }).should.equal(Automan);
+      Automan.drag({from: [15, 15], to: [150, 150], within: '#test'}).should.equal(Automan);
     });
   });
 
