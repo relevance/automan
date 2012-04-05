@@ -6,15 +6,6 @@ Automan =
     args.unshift('Automan')
     console?.log(args...)
 
-  # Not implemented yet. Maybe not even possible.
-  #
-  #     screenX = undefined
-  #     screenY = undefined
-  #     evt = document.createEvent("TouchEvent")
-  #     evt.initTouchEvent(eventType, true, true, window, 0, screenX, screenY, clientX, clientY, false, false, false, false, 0, null)
-  #     el.dispatchEvent(evt)
-  _dispatchTouchEvent: (eventType, clientX, clientY, el) ->
-
   # Dispatches a mouse event of a given type, given an X/Y coordinate
   # from the top, left corner of the given element.
   _dispatchMouseEvent: (mouseEventType, clientX, clientY, el) ->
@@ -71,9 +62,7 @@ Automan =
 
     # Fire all events that occur when a mouse is clicked or a touch
     # screen is tapped.
-    @_dispatchTouchEvent('touchstart', clientX, clientY, el)
     @_dispatchMouseEvent('mousedown', clientX, clientY, el)
-    @_dispatchTouchEvent('touchend', clientX, clientY, el)
     @_dispatchMouseEvent('mouseup', clientX, clientY, el)
     @_dispatchMouseEvent('click', clientX, clientY, el)
     @
@@ -101,13 +90,9 @@ Automan =
     # (i.e. drag and drop). Note that `mousemove` is fired at
     # the start point and the end point, but not at any points
     # in between.
-    @_dispatchTouchEvent("touchstart", startX, startY, el)
     @_dispatchMouseEvent("mousedown", startX, startY, el)
-    @_dispatchTouchEvent("touchmove", startX, startY, el)
     @_dispatchMouseEvent("mousemove", startX, startY, el)
-    @_dispatchTouchEvent("touchmove", endX, endY, el)
     @_dispatchMouseEvent("mousemove", endX, endY, el)
-    @_dispatchTouchEvent("touchend", endX, endY, el)
     @_dispatchMouseEvent("mouseup", endX, endY, el)
     @
 
