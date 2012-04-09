@@ -50,4 +50,8 @@ Automan.drag({
 
 ## Running the tests
 
+If you already have coffee-script/cake installed it should be as simple as:
+
     cake test
+
+If not, you'll need to install cake via npm. We suggest  running `npm install -g coffee-script` to make cake available on your path.
