@@ -26,7 +26,7 @@
     "chai"              : ">=0.5.2",
     "coffee-script"     : ">=1.2.0",
     "uglify-js"         : ">=1.2.6",
-    "mocha"             : ">=1.0.0"
+    "mocha"             : ">=1.0.3"
   },
   "optionalDependencies": {},
   "engines"             : {
